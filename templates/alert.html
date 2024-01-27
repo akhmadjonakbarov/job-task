@@ -1,0 +1,35 @@
+<!-- cook_recipe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cook Recipe</title>
+</head>
+<body>
+
+<h1>Successfully.</h1>
+<p>Redirecting in <span id="countdown">3</span> seconds...</p>
+<script>
+    // Countdown timer and redirect after completion
+    var countdownElement = document.getElementById('countdown');
+    var countdownValue = 3;  // Initial countdown value in seconds
+
+    function updateCountdown() {
+        countdownElement.textContent = countdownValue;
+        if (countdownValue === 0) {
+            // Redirect to the desired page after countdown
+            window.location.href = "{% url 'product_list' %}";
+        } else {
+            countdownValue--;
+            setTimeout(updateCountdown, 1000);  // Update every second
+        }
+    }
+
+    // Start the countdown
+    updateCountdown();
+</script>
+
+</body>
+</html>

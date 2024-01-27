@@ -1,0 +1,40 @@
+<!-- add_product_to_recipe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product to Recipe</title>
+</head>
+<body>
+
+<h1>Add Product to Recipe</h1>
+
+<p>This page allows you to add a product to a recipe.</p>
+
+<form method="post" action="{% url 'add_product_to_recipe' %}">
+    {% csrf_token %}
+
+    <label for="product">Select Product:</label>
+    <select name="product" id="product" required>
+        {% for product in all_products %}
+            <option value="{{ product.id }}">{{ product.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="recipe">Select Recipe:</label>
+    <select name="recipe" id="recipe" required>
+        {% for recipe in all_recipes %}
+            <option value="{{ recipe.id }}">{{ recipe.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="weight">Weight:</label>
+    <input type="number" name="weight" id="weight" required>
+
+    <button type="submit">Add Product to Recipe</button>
+</form>
+
+</body>
+</html>

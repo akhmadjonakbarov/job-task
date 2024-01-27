@@ -1,0 +1,24 @@
+<!-- show_recipes.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes without Product</title>
+</head>
+<body>
+    <h1>Recipes without Product</h1>
+
+    <h2>Recipes without {{ product.name }}</h2>
+    <ul>
+        {% for recipe in recipes_without_product %}
+            <li>{{ recipe.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Recipes with less than 10g of {{ product.name }}</h2>
+    <ul>
+        {% for recipe in recipes_less_than_10g %}
+            <li>{{ recipe.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

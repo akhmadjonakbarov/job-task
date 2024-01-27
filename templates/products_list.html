@@ -1,0 +1,19 @@
+<!-- products_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+<h1>Product List</h1>
+<a href="{% url 'add_product_to_recipe' %}">Add Recipe</a>
+<br><br>
+<a href="{% url 'recipe_list' %}">All Recipes</a>
+
+<ul>
+    {% for product in products %}
+        <li><a href="{% url 'show_recipes_without_product' product.id %}">{{ product.name }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>
